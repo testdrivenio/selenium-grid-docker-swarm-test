@@ -26,10 +26,10 @@ install:
   - pip install -r requirements.txt
 
 before_script:
-  - bash create.sh
+  - bash project/create.sh
 
 script:
-  - python test.py
+  - python project/test.py
 
 after_script:
-  - bash destroy.sh
+  - bash project/destroy.sh
