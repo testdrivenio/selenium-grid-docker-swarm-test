@@ -7,13 +7,12 @@ from selenium.webdriver.common.keys import Keys
 
 
 class GithubSearchTest(unittest.TestCase):
-        
+
     def setUp(self):
         # self.browser = webdriver.Chrome()
         caps = {'browserName': os.getenv('BROWSER', 'chrome')}
-        address = os.getenv('NODE_HUB_ADDRESS')
         self.browser = webdriver.Remote(
-            command_executor=f'http://{NODE_HUB_ADDRESS}:4444/wd/hub',
+            command_executor='http://localhost:4444/wd/hub',
             desired_capabilities=caps
         )
 
