@@ -1,7 +1,7 @@
 language: python
 
 python:
-  - "3.6"
+  - 3.6
 
 services:
   - docker
@@ -23,7 +23,7 @@ sudo install /tmp/docker-machine /usr/local/bin/docker-machine
   - sudo mv docker-machine /usr/local/bin
 
 install:
-  - pip install -r requirements.txt
+  - pip install selenium==3.10.0
 
 before_script:
   - bash project/create.sh
