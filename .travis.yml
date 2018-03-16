@@ -17,7 +17,7 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
   - sudo rm /usr/local/bin/docker-machine
   - curl -L
-  https://github.com/docker/machine/releases/download/v${DOCKER_MACHINE_VERSION/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine && \
+  https://github.com/docker/machine/releases/download/v${DOCKER_MACHINE_VERSION}/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine && \
 sudo install /tmp/docker-machine /usr/local/bin/docker-machine
   - chmod +x docker-machine
   - sudo mv docker-machine /usr/local/bin
