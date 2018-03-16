@@ -6,17 +6,47 @@ services:
     image: selenium/hub:3.10.0
     ports:
       - 4444:4444
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == worker
 
   chrome:
     image: selenium/node-chrome:3.10.0
+    volumes:
+      - /dev/urandom:/dev/random
     depends_on:
       - hub
     environment:
-      - HUB_HOST=hub
+      - HUB_PORT_4444_TCP_ADDR=hub
+      - HUB_PORT_4444_TCP_PORT=4444
+      - NODE_MAX_SESSION=1
+    entrypoint: bash -c 'SE_OPTS="-host $$HOSTNAME -port 5555" /opt/bin/entry_point.sh'
+    ports:
+      - 5555:5555
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == worker
 
   firefox:
     image: selenium/node-firefox:3.10.0
+    volumes:
+      - /dev/urandom:/dev/random
     depends_on:
       - hub
     environment:
-      - HUB_HOST=hub
+      - HUB_PORT_4444_TCP_ADDR=hub
+      - HUB_PORT_4444_TCP_PORT=4444
+      - NODE_MAX_SESSION=1
+    entrypoint: bash -c 'SE_OPTS="-host $$HOSTNAME -port 5556" /opt/bin/entry_point.sh'
+    ports:
+      - 5556:5556
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == worker
