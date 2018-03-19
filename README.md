@@ -2,6 +2,10 @@
 
 Distribute automated tests with Selenium Grid and Docker Swarm
 
+### Want to learn how to build this?
+
+Check out the [post](https://testdriven.io/distributed-testing-with-selenium-grid).
+
 ## Want to use this project?
 
 1. Fork/Clone
