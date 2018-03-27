@@ -6,6 +6,7 @@ echo "Spinning up five droplets..."
 for i in 1 2 3 4 5; do
   docker-machine create \
     --driver digitalocean \
+    --digitalocean-region "nyc1" \
     --digitalocean-size "8gb" \
     --digitalocean-access-token $DIGITAL_OCEAN_ACCESS_TOKEN \
     node-$i;
