@@ -10,7 +10,7 @@ Check out the [post](https://testdriven.io/distributed-testing-with-selenium-gri
 
 1. Fork/Clone
 
-1. Create and activate a virtualenv
+1. Create and activate a virtual environment
 
 1. Install the requirements
 
